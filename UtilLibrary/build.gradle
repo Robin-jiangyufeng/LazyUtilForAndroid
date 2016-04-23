@@ -10,7 +10,7 @@ android {
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -29,18 +29,18 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'util-library'
+    bintrayName = 'lazy-util'
 
     publishedGroupId = 'com.robin.lazy.util'
-    libraryName = 'UtilLibrary'
-    artifact = 'util-library'
+    libraryName = 'LazyUtil'
+    artifact = 'lazy-util'
 
     libraryDescription = 'this is a android library'
 
     siteUrl = 'https://github.com/Robin-jiangyufeng/LazyUtilForAndroid'
     gitUrl = 'https://github.com/Robin-jiangyufeng/LazyUtilForAndroid.git'
 
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.0'
 
     developerId = 'jiangyufeng'
     developerName = 'jiangyufeng'
