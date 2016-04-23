@@ -10,8 +10,13 @@ android {
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.1"
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,10 +26,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:support-v4:23.2.1'
     compile 'com.robin.lazy.logger:LoggerLibrary:1.0.0'
+    testCompile 'junit:junit:4.12'
 }
 
 ext {
@@ -40,7 +43,7 @@ ext {
     siteUrl = 'https://github.com/Robin-jiangyufeng/LazyUtilForAndroid'
     gitUrl = 'https://github.com/Robin-jiangyufeng/LazyUtilForAndroid.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'jiangyufeng'
     developerName = 'jiangyufeng'
