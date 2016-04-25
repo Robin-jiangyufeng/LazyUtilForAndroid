@@ -35,7 +35,7 @@ import static android.os.Environment.MEDIA_MOUNTED;
 public final class StorageUtils {
 
 	private static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
-	private static final String INDIVIDUAL_DIR_NAME = "uil-images";
+	private static final String INDIVIDUAL_DIR_NAME = "lazy-cache";
 
 	private StorageUtils() {
 	}
