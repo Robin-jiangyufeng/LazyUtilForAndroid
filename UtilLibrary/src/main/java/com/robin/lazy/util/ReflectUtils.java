@@ -96,29 +96,48 @@ public class ReflectUtils
             return Object.class;   
         }   
         return (Class<?>) params[index]; 
-    } 
-    
-    /** 
-     * 根据索引获得超类的参数类型 
-     * @param clazz 超类类型 
-     * @param interfacesIndex 所继承的接口的下标
-     * @param genricIndex 接口中范型的下标 
-     */  
-    public static Class<?> getInterfacesGenricType(Class<?> clazz,int interfacesIndex,int genricIndex) { 
-    	//返回表示此 Class 所表示的实体（类、接口、基本类型或 void）的接口的 Type数组。
-    	Type[] genTypes = clazz.getGenericInterfaces();
+    }
+
+    /**
+     * 根据索引获得超类的参数类型
+     * @param clazz 超类类型
+     * @param genricIndex 接口中范型的下标
+     */
+    public static Class<?> getInterfacesGenricType(Class<?> clazz,int genricIndex) {
+        //返回表示此 Class 所表示的实体（类、接口、基本类型或 void）的接口的 Type数组。
+        Type[] genTypes = clazz.getGenericInterfaces();
         if (!(genTypes[0] instanceof ParameterizedType)) {
-            return Object.class;   
-        }  
+            return Object.class;
+        }
         //返回表示此类型实际类型参数的 Type 对象的数组。
-        Type[] params = ((ParameterizedType) genTypes[0]).getActualTypeArguments();                   
-        if (genricIndex >= params.length || genricIndex < 0) { 
-        	return Object.class;
-        }      
+        Type[] params = ((ParameterizedType) genTypes[0]).getActualTypeArguments();
+        if (genricIndex >= params.length || genricIndex < 0) {
+            return Object.class;
+        }
         if (!(params[genricIndex] instanceof Class)) {
-            return Object.class;   
-        }   
-        return (Class<?>) params[genricIndex]; 
-    } 
-    
+            return Object.class;
+        }
+        return (Class<?>) params[genricIndex];
+    }
+
+    /**
+     * 根据索引获得超类的参数类型
+     * @param genericType 超类类型
+     * @param genricIndex 接口中范型的下标
+     */
+    public static Class<?> getInterfacesGenricType(Type genericType,int genricIndex) {
+        //返回表示此 Class 所表示的实体（类、接口、基本类型或 void）的接口的 Type数组。
+        if (!(genericType instanceof ParameterizedType)) {
+            return Object.class;
+        }
+        //返回表示此类型实际类型参数的 Type 对象的数组。
+        Type[] params = ((ParameterizedType) genericType).getActualTypeArguments();
+        if (genricIndex >= params.length || genricIndex < 0) {
+            return Object.class;
+        }
+        if (!(params[genricIndex] instanceof Class)) {
+            return Object.class;
+        }
+        return (Class<?>) params[genricIndex];
+    }
 }
