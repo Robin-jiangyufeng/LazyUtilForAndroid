@@ -3,8 +3,7 @@ package com.robin.lazy.util.extend.app;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-
-import com.robin.lazy.logger.LazyLogger;
+import android.util.Log;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -78,7 +77,7 @@ public class IpUtil
         }
         catch (SocketException ex)
         {
-            LazyLogger.e("IpUtil", ex);
+            Log.e(IpUtil.class.getName(),"IpUtil", ex);
         }
         return "";
     }

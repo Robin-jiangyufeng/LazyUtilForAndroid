@@ -2,8 +2,7 @@ package com.robin.lazy.util.exception;
 
 import android.os.Build;
 import android.os.Looper;
-
-import com.robin.lazy.logger.LazyLogger;
+import android.util.Log;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.lang.reflect.Field;
@@ -60,7 +59,7 @@ public class CrashHandler implements UncaughtExceptionHandler{
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
-				LazyLogger.t("CrashHandler").e("error : ", e);
+				Log.e(CrashHandler.class.getName(),"CrashHandler",  e);
 			}
 			// 退出程序
 			android.os.Process.killProcess(android.os.Process.myPid());
@@ -90,7 +89,7 @@ public class CrashHandler implements UncaughtExceptionHandler{
 		}.start();
 		// 收集设备参数信息
 		collectDeviceInfo();
-		LazyLogger.t("CrashHandler").e(ex, "crash_massage");
+		Log.e(CrashHandler.class.getName(), "crash_massage");
 		return true;
 	}  
     
@@ -105,9 +104,9 @@ public class CrashHandler implements UncaughtExceptionHandler{
             try {  
                 field.setAccessible(true);  
                 infos.put(field.getName(), field.get(null).toString());  
-                LazyLogger.t("CrashHandler").e(field.getName() + " : " + field.get(null));  
-            } catch (Exception e) {  
-            	LazyLogger.t("CrashHandler").e("an error occured when collect crash info", e);  
+                Log.e(CrashHandler.class.getName(),field.getName() + " : " + field.get(null));
+            } catch (Exception e) {
+				Log.e(CrashHandler.class.getName(),"an error occured when collect crash info", e);
             }  
         }  
     } 

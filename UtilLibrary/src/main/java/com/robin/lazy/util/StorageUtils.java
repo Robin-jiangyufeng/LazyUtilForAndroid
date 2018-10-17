@@ -18,8 +18,7 @@ package com.robin.lazy.util;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Environment;
-
-import com.robin.lazy.logger.LazyLogger;
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -83,7 +82,7 @@ public final class StorageUtils {
 		}
 		if (appCacheDir == null) {
 			String cacheDirPath = "/data/data/" + context.getPackageName() + "/cache/";
-			LazyLogger.w("Can't define system cache directory! '%s' will be used.", cacheDirPath);
+			Log.w(StorageUtils.class.getName(),"Can't define system cache directory! '%s' will be used.\n"+cacheDirPath);
 			appCacheDir = new File(cacheDirPath);
 		}
 		return appCacheDir;
@@ -164,13 +163,13 @@ public final class StorageUtils {
 		File appCacheDir = new File(new File(dataDir, context.getPackageName()), "cache");
 		if (!appCacheDir.exists()) {
 			if (!appCacheDir.mkdirs()) {
-				LazyLogger.w("Unable to create external cache directory");
+				Log.w(StorageUtils.class.getName(),"Unable to create external cache directory");
 				return null;
 			}
 			try {
 				new File(appCacheDir, ".nomedia").createNewFile();
 			} catch (IOException e) {
-				LazyLogger.i("Can't create \".nomedia\" file in application external cache directory");
+				Log.i(StorageUtils.class.getName(),"Can't create \".nomedia\" file in application external cache directory");
 			}
 		}
 		return appCacheDir;
