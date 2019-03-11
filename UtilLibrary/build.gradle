@@ -3,14 +3,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 26
-        versionCode 114
-        versionName "1.1.4"
+        targetSdkVersion 28
+        versionCode 115
+        versionName "1.1.5"
     }
 
     lintOptions {
@@ -26,7 +25,7 @@ android {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
 
 ext {
@@ -42,7 +41,7 @@ ext {
     siteUrl = 'https://github.com/Robin-jiangyufeng/LazyUtilForAndroid'
     gitUrl = 'https://github.com/Robin-jiangyufeng/LazyUtilForAndroid.git'
 
-    libraryVersion = '1.1.4'
+    libraryVersion = '1.1.5'
 
     developerId = 'jiangyufeng'
     developerName = 'jiangyufeng'
