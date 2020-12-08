@@ -72,7 +72,7 @@ public class CrashHandler implements UncaughtExceptionHandler{
      * @param ex 
      * @return true:如果处理了该异常信息返回true;否则返回false. 
      */  
-	private boolean handleException(Throwable ex) {
+	private boolean handleException(final Throwable ex) {
 		if (ex == null) {
 			return false;
 		}
@@ -82,14 +82,14 @@ public class CrashHandler implements UncaughtExceptionHandler{
 			public void run() {
 				Looper.prepare();
 				if (mCrashHandleListener != null) {
-					mCrashHandleListener.crashHandle();
+					mCrashHandleListener.crashHandle(ex);
 				}
 				Looper.loop();
 			}
 		}.start();
 		// 收集设备参数信息
 		collectDeviceInfo();
-		Log.e(CrashHandler.class.getName(), "crash_massage");
+		Log.e(CrashHandler.class.getName(), "crash_massage",ex);
 		return true;
 	}  
     
