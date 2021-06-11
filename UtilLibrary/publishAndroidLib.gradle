@@ -1,5 +1,5 @@
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.robin.lazy.net'
+group='com.robin.lazy.util'
 //android studio 错误: 编码GBK的不可映射字符
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
